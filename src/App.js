@@ -9,7 +9,7 @@ function App() {
   ]);
   const [newTodo, setNewTodo] = useState("");
   return (
-    <>
+    <div>
       <input
         type="text"
         value={newTodo}
@@ -48,7 +48,7 @@ function App() {
           </div>
         );
       })}
-    </>
+    </div>
   );
 }
 
