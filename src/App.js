@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import { styled } from "styled-components";
 
 function App() {
   const [newTodo, setNewTodo] = useState("");
@@ -45,6 +46,8 @@ function App() {
     setTodos(filterData);
   };
 
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
     <div>
       <input
@@ -70,8 +73,29 @@ function App() {
           );
         })}
       </div>
+      <Margin />
+      <div
+        style={{
+          background: darkMode ? "black" : "white",
+          color: darkMode ? "white" : "black",
+        }}
+      >
+        {darkMode ? "다크모드!" : "화이트모드!"}
+      </div>
+      <input
+        type="checkbox"
+        value={darkMode}
+        onChange={() => {
+          setDarkMode(!darkMode);
+          // console.log(darkMode);
+        }}
+      />
     </div>
   );
 }
 
 export default App;
+
+const Margin = styled.div`
+  margin-bottom: 50px;
+`;
