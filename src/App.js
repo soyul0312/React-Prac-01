@@ -46,6 +46,14 @@ function App() {
     setTodos(filterData);
   };
 
+  const [selectedOption, setSelectedOption] = useState("");
+  const options = [
+    { value: "", name: "선택하세용!" },
+    { value: "1", name: "찐빵" },
+    { value: "2", name: "호빵" },
+    { value: "3", name: "호떡" },
+  ];
+
   const [darkMode, setDarkMode] = useState(false);
 
   return (
@@ -72,6 +80,25 @@ function App() {
             </div>
           );
         })}
+      </div>
+      <Margin />
+      <div>선택지</div>
+      <select
+        value={selectedOption}
+        onChange={(e) => setSelectedOption(e.target.value)}
+      >
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.name}
+          </option>
+        ))}
+      </select>
+      <div>
+        {options.map((option) =>
+          option.value === selectedOption ? (
+            <span key={option.value}>{option.name}</span>
+          ) : null
+        )}
       </div>
       <Margin />
       <div
