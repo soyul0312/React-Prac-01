@@ -88,18 +88,12 @@ function App() {
         onChange={(e) => setSelectedOption(e.target.value)}
       >
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
+          <option key={option.value} value={option.name}>
             {option.name}
           </option>
         ))}
       </select>
-      <div>
-        {options.map((option) =>
-          option.value === selectedOption ? (
-            <span key={option.value}>{option.name}</span>
-          ) : null
-        )}
-      </div>
+      {selectedOption}
       <Margin />
       <div
         style={{
